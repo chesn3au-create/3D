@@ -27,9 +27,9 @@
 <body>
   <model-viewer
     id="interactive-model"
-    src="https://raw.githubusercontent.com/chesn3au-create/3D/main/Cala-3D-logo.glb"
+    src="https://raw.githubusercontent.com/chesn3au-create/3D/main/cala-3D-transparent(blanc).glb"
     alt="3D model"
-    camera-orbit="0deg 45deg 2.5m"
+    camera-orbit="-30deg 55deg 2.5m"
     camera-controls
     disable-zoom
     interaction-prompt="none"
@@ -43,8 +43,8 @@
     document.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      const orbitX = x * 60;
-      const orbitY = 20 + (y * 20);
+      const orbitX = -30 + (x * 30);
+      const orbitY = 55 + (y * 20);
       modelViewer.cameraOrbit = `${orbitX}deg ${orbitY}deg 2.5m`;
     });
   </script>
