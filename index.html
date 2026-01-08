@@ -29,7 +29,7 @@
     id="interactive-model"
     src="https://raw.githubusercontent.com/chesn3au-create/3D/main/cala-3D-transparent(bleu-metal).glb"
     alt="3D model"
-    camera-orbit="30deg 72deg 2.5m"
+    camera-orbit="30deg 30deg 2.5m"
     camera-controls
     disable-zoom
     interaction-prompt="none"
@@ -44,7 +44,7 @@
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       const orbitX = 30 + (x * 30);
-      const orbitY = 15 + (y * 15);
+      const orbitY = 70 + (y * 15);
       modelViewer.cameraOrbit = `${orbitX}deg ${orbitY}deg 2.5m`;
     });
   </script>
