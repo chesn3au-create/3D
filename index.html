@@ -7,11 +7,20 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     * { margin: 0; padding: 0; }
-    body { background: transparent; overflow: hidden; }
+    html, body { 
+      background: transparent; 
+      overflow: hidden;
+      height: 100%;
+    }
     model-viewer {
       width: 100vw;
       height: 100vh;
       background: transparent;
+      --progress-bar-color: transparent;
+      --progress-bar-height: 0px;
+    }
+    model-viewer::part(default-progress-bar) {
+      display: none;
     }
   </style>
 </head>
@@ -26,6 +35,7 @@
     interaction-prompt="none"
     loading="eager"
     reveal="auto">
+    <div slot="progress-bar"></div>
   </model-viewer>
 
   <script>
@@ -33,8 +43,8 @@
     document.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      const orbitX = x * 40;
-      const orbitY = 30 + (y * 20);
+      const orbitX = x * 30;
+      const orbitY = 45 + (y * 20);
       modelViewer.cameraOrbit = `${orbitX}deg ${orbitY}deg 2.5m`;
     });
   </script>
