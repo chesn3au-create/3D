@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Model</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; }
+    html, body { 
+      background: transparent; 
+      overflow: hidden;
+      height: 100%;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      --progress-bar-color: transparent;
+      --progress-bar-height: 0px;
+    }
+    model-viewer::part(default-progress-bar) {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    id="interactive-model"
+    src="https://raw.githubusercontent.com/chesn3au-create/3D/main/cala-3D-transparent(bleu-metal).glb"
+    alt="3D model"
+    camera-orbit="30deg 30deg 2.5m"
+    camera-controls
+    disable-zoom
+    interaction-prompt="none"
+    loading="eager"
+    reveal="auto">
+    <div slot="progress-bar"></div>
+  </model-viewer>
+
+  <script>
+    const modelViewer = document.getElementById('interactive-model');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      const orbitX = 30 + (x * 30);
+      const orbitY = 70 + (y * 15);
+      modelViewer.cameraOrbit = `${orbitX}deg ${orbitY}deg 2.5m`;
+    });
+  </script>
+</body>
+</html>
